@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "nodeSem2 = pondSem2.nodeSem2:main"
         ],
     },
 )
