@@ -49,6 +49,6 @@
 
 &emsp;Para demonstrar o funcionamento da atividade, um vídeo foi criado demonstrando o sistema.
 
-LINK VIDEO AQ
+&emsp;<a href="https://youtu.be/kWVyb4zO6AU">LINK DO VÍDEO</a>
 
-&emsp;No vídeo, é possível ver os comandos da inicialização do programa, a tartaruda spawna e realiza o desenho, e depois ela desaparece
+&emsp;No vídeo, é possível ver os comandos da inicialização do programa, a tartaruda spawna, realiza o desenho e depois ela desaparece.
