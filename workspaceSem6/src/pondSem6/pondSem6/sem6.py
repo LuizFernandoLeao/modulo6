@@ -1,3 +1,5 @@
+#&emsp;Vale destacar que a solução desta atividade foi altamente inspirada na solução do projeto em grupo. Segue o link como referência para o repositório do grupo: https://github.com/Inteli-College/2024-1b-t08-ec06-g01
+
 import typer
 import rclpy
 from rclpy.node import Node
