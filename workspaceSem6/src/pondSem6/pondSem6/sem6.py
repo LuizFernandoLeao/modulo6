@@ -1,4 +1,4 @@
-#&emsp;Vale destacar que a solução desta atividade foi altamente inspirada na solução do projeto em grupo. Segue o link como referência para o repositório do grupo: https://github.com/Inteli-College/2024-1b-t08-ec06-g01
+#Vale destacar que a solução desta atividade foi altamente inspirada na solução do projeto em grupo. Segue o link como referência para o repositório do grupo: https://github.com/Inteli-College/2024-1b-t08-ec06-g01
 
 import typer
 import rclpy
@@ -31,10 +31,10 @@ class TurtleBot(Node):
         try:
             if tecla.char == 'w':
                 robo.current_linear.x = robo.linear_speed
-            elif tecla.char == 's':
-                robo.current_linear.x = -robo.linear_speed
             elif tecla.char == 'a':
                 robo.current_angular.z = robo.angular_speed
+            elif tecla.char == 's':
+                robo.current_linear.x = -robo.linear_speed
             elif tecla.char == 'd':
                 robo.current_angular.z = -robo.angular_speed
             elif tecla.char == 'q':
@@ -87,7 +87,7 @@ class TurtleBot(Node):
         print(f"  Velocidade Linear: {robo.current_linear.x}")
         print(f"  Velocidade Angular: {robo.current_angular.z}")
 
-    # Função para chamar o serviço de parar o robô
+    #Define a função de encerramento da operação do robô
     def stop_robot_client(robo):
         print("Chamando o serviço para parar o robô...")
         client = robo.create_client(Empty, 'stop_robot')
@@ -102,14 +102,11 @@ class TurtleBot(Node):
         rclpy.shutdown()
         exit()
 
-
-# Função principal para inicializar o robô e controlá-lo
 def main():
     print("Aguarde...")
     rclpy.init(args=None)
     robot = TurtleBot()
     rclpy.spin(robot)
 
-# Função para chamar o app ao rodar o pacote 
 if __name__ == "__main__":
     main()
