@@ -1,10 +1,10 @@
-# Ponderada Semana 6 - Luiz Fernando Leão
+# Ponderada Semana 7 - Luiz Fernando Leão
 
 ## Objetivo
 
-&emsp;O objetivo da atividade é fazer um setup de interação com o turtlebot, compreendendo os conceitos básico para uso do ROS em rede e dos pacotes para interação com o robô.
+&emsp;O objetivo da atividade é incrementar o sistema do turtlebot teleoperado (da atividade ponderada anterior) para incluir conceitos de streaming de imagens.
 
-&emsp;Na atividade, foi preciso desenvolver uma interface de usuário para detectar os botões pressionados pelo usuário e dar um feedback da velocidade do robô em tempo real. Também, um nó de ROS 2 foi feito com a capacidade de comandar o robô e que seja capaz de verificar se o robô está inicializado e disponível para receber suas mensagens antes de enviá-las.
+&emsp;Na atividade, foi preciso revisar a implementação original do turtlebot teleoperado, modificar a interface de usuário para que exiba a imagem transmitida e criar o código necessário para transferir a imagem em tempo real.
 
 ## Instalação
 
@@ -19,7 +19,7 @@
 2. Navegue até onde a pasta foi criada e digite o seguinte comando para acessar a pasta raíz do workspace:
 
     ```console
-    cd workspaceSem6/src
+    cd workspaceSem7/src
     ``` 
 
 3. Agora é preciso contruir o pacote, para que o programa tenha as dependências necessárias para funcionar:
@@ -40,7 +40,17 @@
 	ros2 launch webots_ros2_turtlebot robot_launch.py
     ``` 
 
-6. Finalmente, retorne ao primeiro terminal e rode o nó em que possui o funcionamento do robô: 
+6. Agora abra um terceiro terminal e rode os seguintes comandos, para que o server rosbridge da transmissão das imagens seja ativado
+
+    ```console
+	sudo apt install ros-humble-rosbridge-suite
+
+    ros2 launch rosbridge_server rosbridge_websocket_launch.xml
+    ``` 
+
+7. Abra o arquivo imagens.html, (presente no caminho /workspaceSem7/src/pondSem6/pondSem6/imagens.html), para ver o funcionamento da câmera, quando for ativada no próximo passo
+
+8. Finalmente, retorne ao primeiro terminal e rode o nó em que possui o funcionamento do robô (este nó também ligará a câmera): 
 
     ```console 
     ros2 run pondSem6 sem6 
