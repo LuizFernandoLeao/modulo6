@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<!-- ROS libraries -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+
+<script type="text/javascript">
+  var ros = new ROSLIB.Ros({
+    url : 'ws://localhost:9090'
+  });
+
+  ros.on('connection', function() {
+    console.log('Connected to websocket server.');
+  });
+
+  ros.on('error', function(error) {
+    console.log('Error connecting to websocket server: ', error);
+  });
+
+  ros.on('close', function() {
+    console.log('Connection to websocket server closed.');
+  });
+
+  // Topic to receive video frames
+  var videoTopic = new ROSLIB.Topic({
+    ros : ros,
+    name : '/video_frames',
+    messageType : 'sensor_msgs/CompressedImage'
+  });
+
+  // Function to handle incoming video frames
+  videoTopic.subscribe(function(message) {
+    var img = document.getElementById('videoStream');
+    img.src = 'data:image/jpeg;base64,' + message.data;
+  });
+
+  window.onload = function() {
+    // Subscribe to video frames once
+    videoTopic.subscribe();
+  };
+</script>
+</head>
+<body>
+  <h1>Simulação da câmera do robô, utilizando a câmera do notebook</h1>
+  <h2>O robô foi iniciado com sucesso. O robô está apto e disponível para receber suas mensagens</h2>
+  <h3>Movimentação do robô</h3>
+  <h3>W - Frente</h3>
+  <h3>A - Esquerda</h3>
+  <h3>S - Trás</h3>
+  <h3>D - Direita</h3>
+  <h3>Pressione 'Q' para parar o robô e sair.</h3>
+
+  <img id="videoStream" alt="Video Stream" style="width: 640px; height: 480px;" />
+</body>
+</html>
