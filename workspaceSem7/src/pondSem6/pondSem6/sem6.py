@@ -14,6 +14,7 @@ app = typer.Typer()
 
 class TurtleBot(Node):
 
+    #Define a função de inicialização do robô
     def __init__(self):
         super().__init__('turtlebot')
         print("Aguarde...")
@@ -33,6 +34,7 @@ class TurtleBot(Node):
         self.cap = cv2.VideoCapture(0)
         self.frame_count = 0
 
+    #Define a função para movimentar e para o robô a partir de teclas do computador
     def on_press(self, tecla):
         try:
             if tecla.char == 'w':
@@ -52,6 +54,7 @@ class TurtleBot(Node):
             pass
         self.update_movement()
 
+    #Define a função de parar o robô quando a tecla é solta
     def on_release(self, tecla):
         try:
             if tecla.char in ['w', 's']:
@@ -62,18 +65,22 @@ class TurtleBot(Node):
             pass
         self.update_movement()
     
+    #Define a função da atualização sobre o movimento do robô
     def update_movement(self):
         msg = Twist()
         msg.linear = self.current_linear
         msg.angular = self.current_angular
         self.publisher_.publish(msg)
 
+    #Define a função da parada de emergência
     def emergency_stop(self):
         self.current_linear = Vector3(x=0.0)
         self.current_angular = Vector3(z=0.0)
         self.update_movement()
 
+    #Define a função de exibição dos dados do robô em tempo real
     def display_status(self):
+        #Comando para limpar o terminal enquanto o sitema funciona
         print("\033c", end="")
         print(f"O robô foi iniciado com sucesso. O robô está apto e disponível para receber suas mensagens: {self.connected}.")
         print("\nMovimentação do robô")
@@ -88,6 +95,7 @@ class TurtleBot(Node):
         print(f"  Velocidade Linear: {self.current_linear.x}")
         print(f"  Velocidade Angular: {self.current_angular.z}")
 
+    #Define a função de encerramento da operação do robô
     def stop_robot_client(self):
         print("Chamando o serviço para parar o robô...")
         client = self.create_client(Empty, 'stop_robot')
@@ -102,10 +110,10 @@ class TurtleBot(Node):
         rclpy.shutdown()
         exit()
 
+    #Define a função de captura de imagem da câmera
     def camera_timer_callback(self):
         ret, frame = self.cap.read()
         if ret:
-            # Encode frame as JPEG
             _, buffer = cv2.imencode('.jpg', frame)
             msg = CompressedImage()
             msg.format = "jpeg"
@@ -117,7 +125,7 @@ def main(args=None):
     rclpy.init(args=args)
     robot = TurtleBot()
     rclpy.spin(robot)
-    robot.cap.release()  # Release the capture when done
+    robot.cap.release()  #A camera é liberada
     cv2.destroyAllWindows()
     robot.destroy_node()
     rclpy.shutdown()

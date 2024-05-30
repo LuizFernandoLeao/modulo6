@@ -59,8 +59,8 @@
 
 &emsp;Para demonstrar o funcionamento da atividade, um vídeo foi criado demonstrando o sistema.
 
-&emsp;<a href="https://www.youtube.com/watch?v=B1PH7GKhZqo">LINK DO VÍDEO</a>
+&emsp;<a href="https://www.youtube.com/watch?v=j8ijmBNiyPI">LINK DO VÍDEO</a>
 
-&emsp;No vídeo, é possível ver a inicialização do sistema, em que informa o usuário de o sistema foi iniciado corretamente e se está apto para receber mensagens. Também, é possível utilizar as teclas do computador para controlar o robô, e ter uma resposta deste controle em tempo real.
+&emsp;No vídeo, é possível ver a inicialização do sistema, em que informa o usuário de o sistema foi iniciado corretamente e se está apto para receber mensagens. Também, é possível utilizar as teclas do computador para controlar o robô, e ter uma resposta deste controle em tempo real. Além disso, há o funcionamento da transmissão de imagens, que foi simulada utilizando a câmera do computador, e utilizando o protocolo rosbridge.
 
 &emsp;Vale destacar que a solução desta atividade foi altamente inspirada na solução do projeto em grupo. Segue o link como referência para o repositório do grupo: https://github.com/Inteli-College/2024-1b-t08-ec06-g01 . Além disso, sites de IA generativa como o ChatGPT foram utilizados, com a finalidade de ampliar os estudos sobre o assunto e aumentar a qualidade da entrega da atividade
