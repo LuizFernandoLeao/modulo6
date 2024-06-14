@@ -17,8 +17,8 @@ while True:
     # Converter o frame para escala de cinza
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
-    # Detectar rostos
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    # Detectar rostos (a função detectMultiScale foi ajustada detalhadamente para que a detecção evite apresentar falsos positivos)
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=15, minSize=(90, 30))
     
     # Desenhar retângulos em torno dos rostos detectados
     for (x, y, w, h) in faces:

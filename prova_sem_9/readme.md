@@ -1,4 +1,4 @@
-# Prova 1 - Luiz Fernando Leão
+# Prova 2 - Luiz Fernando Leão
 
 ## Objetivo
 
@@ -24,13 +24,13 @@
 
 &emsp;Por se tratar de detalhes mais avançados sobre detecção de faces, a detecção de emoções faciais humanas deve ser mais apropriada para ser implementada utilizando métodos mais sofisticados, como o CNN, em primeiro lugar, e NN Linear em seguindo, pois são capazes de fazer detecções mais precisas, e num caso em que a detecção possui detalhes mais avançados, pode ser mais benéfico optar por métodos mais robustos, que podem não ser rápidos e eficientes, mas apresentam respostas precisas. 
 
-&emsp;A terceira alternativa é o HAAR Cascade, pois com um bom classificador pré-treinado, ela pode ser uma boa opção, e por último, os filtros de correlação cruzada
+&emsp;A terceira alternativa é o HAAR Cascade, pois com um bom classificador pré-treinado, ela pode ser uma boa opção, e por último, os filtros de correlação cruzada.
 
 ### 2.4
 
 &emsp;A solução apresentada não possui a capacidade de considerar variações de um frame para outros, pois a solução é treinada previamente, e quando esta no processo de identificações de rostos humanos, ela faz a análise entre os frames e retorna os resultados, mas sem considerar o que ocorreu em frames anteriores. 
 
-&emsp;Para que isso seja possível, é preciso configurar a solução para ser capaz considerar os frames anteriores para fazer novas detecções durante o processo de análise das expressões faciais de humanos num vídeo, por exemplo. Assim, deve-se utilizar modelos robustos no contexto das redes neurais, como por exemplo os MLPs (Multi-layer perceptrons), para que seja possível fazer uma solução em que os frames anteriores interferem no resultados dos frames seguintes
+&emsp;Para que isso seja possível, é preciso configurar a solução para ser capaz considerar os frames anteriores para fazer novas detecções durante o processo de análise das expressões faciais de humanos num vídeo, por exemplo. Assim, deve-se utilizar modelos robustos no contexto das redes neurais, como por exemplo os MLPs (Multi-layer perceptrons), para que seja possível fazer uma solução em que os frames anteriores interferem no resultados dos frames seguintes.
 
 ### 2.5
 
@@ -69,8 +69,11 @@
 
 ## Demonstração
 
-&emsp;Para demonstrar o funcionamento do sistema de detecção de rostos, segue abaixo um print do momento em que rostos foram detectados no vídeo:
+&emsp;Para demonstrar o funcionamento do sistema de detecção de rostos, segue abaixo prints dos momentos em que rostos foram detectados no vídeo:
+
+![Demonstração](../prova_sem_9/demonstracao2.png)
 
 ![Demonstração](../prova_sem_9/demonstracao.png)
 
-&emsp;Neste print, é possível ver um retângulo em torno dos rostos no vídeo, o que demonstra o funcionamento do sistema de detecção de faces
+
+&emsp;Nestes prints, é possível ver um retângulo em torno dos rostos no vídeo, o que demonstra o funcionamento do sistema de detecção de faces. Além disso, o código foi otimizado para que evite falsos positivos, ou seja, a presença do retângulo em lugares que não são faces humanas.
