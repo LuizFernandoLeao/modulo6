@@ -3,3 +3,8 @@ build/
 log/
 venv/
 torch/
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
+__pycache__/
