@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 # Carrega o modelo linear
-modelo = load_model('modelo_mnist_linear.h5')
+modelo = load_model('mnist_linear.h5')
 
 # O modelo faz a predição
 def predict_linear():
